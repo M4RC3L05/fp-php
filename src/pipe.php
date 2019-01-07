@@ -4,9 +4,17 @@ namespace FPPHP;
 
 function pipe(...$fns)
 {
-    return function (...$args) use (&$fns) {
+    return function ($arg) use (&$fns) {
+
+        if (\is_null($arg) || !isset($arg)) throw new \Exception("No argument provided.");
+
+        if (\count($fns) <= 0) throw new \Exception("No functions provided.");
+
         return array_reduce($fns, function ($acc, $curr) {
-            return [$curr(...$acc)];
-        }, $args)[0];
+
+            if (!\is_callable($curr)) throw new \Exception("Could not call function.");
+
+            return \call_user_func($curr, $acc);
+        }, $arg);
     };
 }

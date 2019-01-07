@@ -2,7 +2,7 @@
 
 namespace FPPHP;
 
-function forEvery($action, $data) : void
+function forEvery($action, $data)
 {
     if (!\is_callable($action)) throw new \Exception("Action must be a function.");
 
@@ -14,6 +14,6 @@ function forEvery($action, $data) : void
         if (!\is_iterable($data)) throw new \Exception("Data must be a iterable.");
 
     foreach ($data as $k => $v)
-        $action($v, $k);
+        \call_user_func($action, $v, $k);
 
 }
