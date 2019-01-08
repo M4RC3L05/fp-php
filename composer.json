@@ -10,8 +10,7 @@
             "src/functions/pipe.php",
             "src/functions/partial.php",
             "src/functions/partialRight.php",
-            "src/functions/compose.php",
-            "src/utils/isIterable.php"
+            "src/functions/compose.php"
         ]
     },
     "require-dev": {
