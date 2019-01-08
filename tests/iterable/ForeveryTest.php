@@ -83,7 +83,7 @@ class ForeveryTest extends TestCase
             forEvery("")("");
             $this->fail("Did not raize exception");
         } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Action must be a function.");
+            $this->assertEquals($e->getMessage(), "Must pass a valid function.");
         }
 
         try {
@@ -91,14 +91,14 @@ class ForeveryTest extends TestCase
             })("");
             $this->fail("Did not raize exception");
         } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Data must be a iterable.");
+            $this->assertEquals($e->getMessage(), "Must pass a valid iterable.");
         }
 
         try {
             forEvery("")([1]);
             $this->fail("Did not raize exception");
         } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Action must be a function.");
+            $this->assertEquals($e->getMessage(), "Must pass a valid function.");
         }
     }
 }

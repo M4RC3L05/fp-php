@@ -3,10 +3,12 @@
         "files": [
             "src/iterable/forevery.php",
             "src/iterable/some.php",
+            "src/iterable/every.php",
             "src/functions/compose.php",
             "src/functions/curry.php",
             "src/functions/memoize.php",
-            "src/functions/pipe.php"
+            "src/functions/pipe.php",
+            "src/utils/isIterable.php"
         ]
     },
     "require-dev": {

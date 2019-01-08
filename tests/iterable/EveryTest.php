@@ -3,37 +3,37 @@
 namespace Tests\Iterable;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\Iterable\some;
+use function FPPHP\Iterable\every;
 
 
-class SomeTest extends TestCase
+class EveryTest extends TestCase
 {
-    public function test_it_should_check_if_a_given_iterable_have_some_values()
+    public function test_it_should_check_if_a_given_iterable_have_every_value()
     {
-        $res = some(function ($x) {
+        $res = every(function ($x) {
             return $x === 2;
         })([1, 2, 3, 4, 5]);
 
-        $this->assertTrue($res);
-
-        $res = some(function ($x) {
-            return $x === 10;
-        })([1, 2, 3, 4, 5]);
-
         $this->assertFalse($res);
+
+        $res = every(function ($x) {
+            return $x === 2;
+        })([2, 2, 2]);
+
+        $this->assertTrue($res);
     }
 
     public function test_it_should_throw_if_invalid_data_is_provided()
     {
         try {
-            some("")("");
+            every("")("");
             $this->fail("Did not raize exception");
         } catch (\Exception $e) {
             $this->assertEquals($e->getMessage(), "Must pass a valid function.");
         }
 
         try {
-            some(function () {
+            every(function () {
             })("");
             $this->fail("Did not raize exception");
         } catch (\Exception $e) {
@@ -41,7 +41,7 @@ class SomeTest extends TestCase
         }
 
         try {
-            some("")([1]);
+            every("")([1]);
             $this->fail("Did not raize exception");
         } catch (\Exception $e) {
             $this->assertEquals($e->getMessage(), "Must pass a valid function.");

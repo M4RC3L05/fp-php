@@ -2,17 +2,15 @@
 
 namespace FPPHP\Iterable;
 
+use function FPPHP\Utils\isIterable;
+
+
 function forEvery($action)
 {
     return function ($data) use ($action) {
-        if (!\is_callable($action)) throw new \Exception("Action must be a function.");
+        if (!\is_callable($action)) throw new \Exception("Must pass a valid function.");
 
-        // For older versions of php
-        if (!\function_exists("is_iterable")) {
-            if (\is_array($data) || (\is_object($data) && ($data instanceof \Traversable)))
-                throw new \Exception("Data must be a iterable.");
-        } else
-            if (!\is_iterable($data)) throw new \Exception("Data must be a iterable.");
+        if (!isIterable($data)) throw new \Exception("Must pass a valid iterable.");
 
         foreach ($data as $k => $v)
             \call_user_func($action, $v, $k);
