@@ -8,7 +8,7 @@ function every($condition)
         $tmp = false;
 
         forEvery(function ($v) use ($condition, &$tmp) {
-            $tmp = \call_user_func($condition, $v);
+            $tmp = \call_user_func_array($condition, [&$v]);
         })($iterable);
 
         return $tmp;

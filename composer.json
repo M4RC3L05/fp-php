@@ -4,13 +4,20 @@
             "src/iterable/forevery.php",
             "src/iterable/some.php",
             "src/iterable/every.php",
+            "src/iterable/head.php",
+            "src/iterable/tail.php",
+            "src/iterable/reduce.php",
+            "src/iterable/last.php",
+            "src/lists/map.php",
+            "src/lists/filter.php",
+            "src/lists/reduceRight.php",
+            "src/lists/reverse.php",
             "src/functions/compose.php",
             "src/functions/curry.php",
             "src/functions/memoize.php",
             "src/functions/pipe.php",
             "src/functions/partial.php",
-            "src/functions/partialRight.php",
-            "src/functions/compose.php"
+            "src/functions/partialRight.php"
         ]
     },
     "require-dev": {

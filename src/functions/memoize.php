@@ -12,7 +12,7 @@ function memoize($fn)
 
         if (array_key_exists($argsStr, $memo)) return $memo[$argsStr];
 
-        $memo[$argsStr] = \call_user_func($fn, ...$args);
+        $memo[$argsStr] = \call_user_func_array($fn, $args);
 
         return $memo[$argsStr];
     };

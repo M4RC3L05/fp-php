@@ -21,7 +21,7 @@ function curry($fn)
             \array_push($args, $arg);
 
             if (count($args) < $numOfArgs)
-                return \call_user_func($inner, $args);
+                return \call_user_func_array($inner, [&$args]);
             else
                 return \call_user_func_array($fn, $args);
         };

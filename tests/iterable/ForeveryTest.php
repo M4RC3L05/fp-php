@@ -75,5 +75,10 @@ class ForeveryTest extends TestCase
         forEvery([D::class, "b"])([1, 2, 3]);
         $out6 = \ob_get_clean();
         $this->assertEquals($out6, "01 12 23 ");
+
+        \ob_start();
+        forEvery([D::class, "b"])(["a" => "a", "b" => "b"]);
+        $out6 = \ob_get_clean();
+        $this->assertEquals($out6, "aa bb ");
     }
 }
