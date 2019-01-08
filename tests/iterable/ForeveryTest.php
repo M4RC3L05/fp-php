@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Tests\Iterable;
 
 use PHPUnit\Framework\TestCase;
 use function FPPHP\Iterable\forEvery;
@@ -27,7 +27,7 @@ class ForeveryTest extends TestCase
         \ob_start();
         forEvery(function ($v, $k) {
             echo "{$k}{$v} ";
-        }, [1, 2, 3]);
+        })([1, 2, 3]);
         $out = \ob_get_clean();
         $this->assertEquals($out, "01 12 23 ");
 
@@ -36,7 +36,7 @@ class ForeveryTest extends TestCase
         \ob_start();
         forEvery(function ($v, $k) {
             echo "{$k}{$v} ";
-        }, new \ArrayIterator([1, 2, 3]));
+        })(new \ArrayIterator([1, 2, 3]));
         $out2 = \ob_get_clean();
         $this->assertEquals($out2, "01 12 23 ");
 
@@ -50,7 +50,7 @@ class ForeveryTest extends TestCase
         \ob_start();
         forEvery(function ($v, $k) {
             echo "{$k}{$v} ";
-        }, $gen);
+        })($gen);
         $out3 = \ob_get_clean();
         $this->assertEquals($out3, "01 12 23 ");
 
@@ -58,7 +58,7 @@ class ForeveryTest extends TestCase
         \ob_start();
         forEvery(function ($v, $k) {
             echo "{$k}{$v} ";
-        }, [
+        })([
             "a" => "a",
             "b" => "b",
             "c" => "c"
@@ -67,12 +67,12 @@ class ForeveryTest extends TestCase
         $this->assertEquals($out4, "aa bb cc ");
 
         \ob_start();
-        forEvery([D::class, "a"], [1, 2, 3]);
+        forEvery([D::class, "a"])([1, 2, 3]);
         $out5 = \ob_get_clean();
         $this->assertEquals($out5, "01 12 23 ");
 
         \ob_start();
-        forEvery([D::class, "b"], [1, 2, 3]);
+        forEvery([D::class, "b"])([1, 2, 3]);
         $out6 = \ob_get_clean();
         $this->assertEquals($out6, "01 12 23 ");
     }
@@ -80,7 +80,7 @@ class ForeveryTest extends TestCase
     public function test_it_should_throw_if_invalid_data_is_provided()
     {
         try {
-            forEvery("", "");
+            forEvery("")("");
             $this->fail("Did not raize exception");
         } catch (\Exception $e) {
             $this->assertEquals($e->getMessage(), "Action must be a function.");
@@ -88,14 +88,14 @@ class ForeveryTest extends TestCase
 
         try {
             forEvery(function () {
-            }, "");
+            })("");
             $this->fail("Did not raize exception");
         } catch (\Exception $e) {
             $this->assertEquals($e->getMessage(), "Data must be a iterable.");
         }
 
         try {
-            forEvery("", [1]);
+            forEvery("")([1]);
             $this->fail("Did not raize exception");
         } catch (\Exception $e) {
             $this->assertEquals($e->getMessage(), "Action must be a function.");

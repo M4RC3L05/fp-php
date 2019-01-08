@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\Funtion\memoize;
+use function FPPHP\Functions\memoize;
 
 class C
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests;
+namespace Tests\Functions;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\Funtion\pipe;
+use function FPPHP\Functions\pipe;
 
 class B
 {
@@ -42,7 +42,7 @@ class PipeTest extends TestCase
         }
 
         // Should compose f11(aaa(f22(bbb(f33(10))))) = 45
-        $fnPipe = pipe("Tests\\f33", [B::class, "bbb"], "Tests\\f22", [new B(), "aaa"], $f11);
+        $fnPipe = pipe("Tests\\Functions\\f33", [B::class, "bbb"], "Tests\\Functions\\f22", [new B(), "aaa"], $f11);
 
         $this->assertTrue(\is_callable($fnPipe));
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests;
+namespace Tests\Functions;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\Funtion\compose;
+use function FPPHP\Functions\compose;
 
 class A
 {
@@ -42,7 +42,7 @@ class ComposeTest extends TestCase
         }
 
         // Should compose f3(bbb(f2(aaa(f1(10))))) = 67
-        $fnCompose = compose("Tests\\f3", [A::class, "bbb"], "Tests\\f2", [A::class, "aaa"], $f1);
+        $fnCompose = compose("Tests\\Functions\\f3", [A::class, "bbb"], "Tests\\Functions\\f2", [A::class, "aaa"], $f1);
 
         $this->assertTrue(\is_callable($fnCompose));
 

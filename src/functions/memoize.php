@@ -1,6 +1,6 @@
 <?php
 
-namespace FPPHP\Funtion;
+namespace FPPHP\Functions;
 
 function memoize($fn)
 {
