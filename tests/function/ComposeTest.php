@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\compose;
+use function FPPHP\Funtion\compose;
 
 class A
 {

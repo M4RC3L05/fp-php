@@ -1,6 +1,6 @@
 <?php
 
-namespace FPPHP;
+namespace FPPHP\Iterable;
 
 function forEvery($action, $data)
 {

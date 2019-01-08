@@ -1,6 +1,6 @@
 <?php
 
-namespace FPPHP;
+namespace FPPHP\Funtion;
 
 function pipe(...$fns)
 {

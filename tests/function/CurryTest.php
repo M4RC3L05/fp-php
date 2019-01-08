@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\curry;
+use function FPPHP\Funtion\curry;
 
 class E
 {

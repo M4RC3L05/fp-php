@@ -1,11 +1,11 @@
 {
     "autoload": {
         "files": [
-            "src/forevery.php",
-            "src/compose.php",
-            "src/curry.php",
-            "src/memoize.php",
-            "src/pipe.php"
+            "src/iterable/forevery.php",
+            "src/function/compose.php",
+            "src/function/curry.php",
+            "src/function/memoize.php",
+            "src/function/pipe.php"
         ]
     },
     "require-dev": {

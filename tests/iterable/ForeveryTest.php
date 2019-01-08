@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\forEvery;
+use function FPPHP\Iterable\forEvery;
 
 class D
 {

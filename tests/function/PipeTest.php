@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\pipe;
+use function FPPHP\Funtion\pipe;
 
 class B
 {
