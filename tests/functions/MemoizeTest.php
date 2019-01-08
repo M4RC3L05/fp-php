@@ -98,26 +98,4 @@ class MemoizeTest extends TestCase
         $this->assertEquals($r11111, $r22222);
         $this->assertEquals($r111111, $r222222);
     }
-
-    public function test_it_should_throw_if_no_args_are_provided()
-    {
-        try {
-            memoize(function () {
-
-            })();
-            $this->fail("Did not throw");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "No arguments were provided.");
-        }
-    }
-
-    public function test_it_should_throw_if_invalid_function_is_provided()
-    {
-        try {
-            memoize("")();
-            $this->fail("Did not throw");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "No function was provided to memoize");
-        }
-    }
 }

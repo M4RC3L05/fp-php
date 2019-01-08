@@ -53,34 +53,4 @@ class ComposeTest extends TestCase
         $this->assertEquals($res, 67);
         $this->assertEquals($echos, "f1A->aaaf2A::bbbf3");
     }
-
-    public function test_it_should_throw_error_if_compose_is_not_called_with_functions()
-    {
-        try {
-            compose()(19);
-            $this->fail("Did not throw");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "No functions provided.");
-        }
-    }
-
-    public function test_it_should_throw_error_if_compose_is_not_called_with_valid_functions()
-    {
-        try {
-            compose("afsg", "adsgfd")(19);
-            $this->fail("Did not throw");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Could not call function.");
-        }
-    }
-
-    public function test_it_should_throw_error_if_compose_is_not_called_with_argument()
-    {
-        try {
-            compose("afsg", "adsgfd")(null);
-            $this->fail("Did not throw");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "No argument provided.");
-        }
-    }
 }

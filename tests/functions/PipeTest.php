@@ -53,34 +53,4 @@ class PipeTest extends TestCase
         $this->assertEquals($res, 45);
         $this->assertEquals($echos, "f33B::bbbf22B->aaaf11");
     }
-
-    public function test_it_should_throw_error_if_pipe_is_not_called_with_functions()
-    {
-        try {
-            pipe()(19);
-            $this->fail("Did not throw");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "No functions provided.");
-        }
-    }
-
-    public function test_it_should_throw_error_if_pipe_is_not_called_with_valid_functions()
-    {
-        try {
-            pipe("afsg", "adsgfd")(19);
-            $this->fail("Did not throw");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Could not call function.");
-        }
-    }
-
-    public function test_it_should_throw_error_if_pipe_is_not_called_with_argument()
-    {
-        try {
-            pipe("afsg", "adsgfd")(null);
-            $this->fail("Did not throw");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "No argument provided.");
-        }
-    }
 }

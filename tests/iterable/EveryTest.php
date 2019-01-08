@@ -22,29 +22,4 @@ class EveryTest extends TestCase
 
         $this->assertTrue($res);
     }
-
-    public function test_it_should_throw_if_invalid_data_is_provided()
-    {
-        try {
-            every("")("");
-            $this->fail("Did not raize exception");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Must pass a valid function.");
-        }
-
-        try {
-            every(function () {
-            })("");
-            $this->fail("Did not raize exception");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Must pass a valid iterable.");
-        }
-
-        try {
-            every("")([1]);
-            $this->fail("Did not raize exception");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Must pass a valid function.");
-        }
-    }
 }

@@ -76,29 +76,4 @@ class ForeveryTest extends TestCase
         $out6 = \ob_get_clean();
         $this->assertEquals($out6, "01 12 23 ");
     }
-
-    public function test_it_should_throw_if_invalid_data_is_provided()
-    {
-        try {
-            forEvery("")("");
-            $this->fail("Did not raize exception");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Must pass a valid function.");
-        }
-
-        try {
-            forEvery(function () {
-            })("");
-            $this->fail("Did not raize exception");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Must pass a valid iterable.");
-        }
-
-        try {
-            forEvery("")([1]);
-            $this->fail("Did not raize exception");
-        } catch (\Exception $e) {
-            $this->assertEquals($e->getMessage(), "Must pass a valid function.");
-        }
-    }
 }
