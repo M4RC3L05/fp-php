@@ -4,16 +4,20 @@ namespace FPPHP\Lists;
 
 function filter($fn)
 {
-    return function (...$rest) use ($fn) {
-        return function ($iterable) use ($fn, $rest) {
-            $tmpArr = [];
+    return function ($iterable) use ($fn) {
+        $isAssoc = \array_values($iterable) !== $iterable;
+        $tmpArr = [];
 
-            for ($i = 0; $i < count($iterable); $i++) {
-                if (\call_user_func_array($fn, [&$iterable[$i]])) \array_push($tmpArr, $iterable[$i]);
+        forEvery(function ($v, $k) use ($isAssoc, &$tmpArr, $fn) {
+            if (\call_user_func_array($fn, [&$v, &$k])) {
+                if ($isAssoc) {
+                    $tmpArr[$k] = $v;
+                } else {
+                    \array_push($tmpArr, $v);
+                }
             }
+        })($iterable);
 
-            return $tmpArr;
-        };
+        return $tmpArr;
     };
-
 }

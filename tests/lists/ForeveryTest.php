@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Iterable;
+namespace Tests\Lists;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\Iterable\forEvery;
+use function FPPHP\Lists\forEvery;
 
 class D
 {

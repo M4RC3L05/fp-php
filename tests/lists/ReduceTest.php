@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Iterable;
+namespace Tests\Lists;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\Iterable\reduce;
+use function FPPHP\Lists\reduce;
 
 
 class ReduceTest extends TestCase

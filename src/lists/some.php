@@ -1,6 +1,6 @@
 <?php
 
-namespace FPPHP\Iterable;
+namespace FPPHP\Lists;
 
 use function FPPHP\Utils\isIterable;
 

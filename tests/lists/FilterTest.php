@@ -14,8 +14,15 @@ class FilterTest extends TestCase
         $arr = [1, 2, 3];
         $arrFiltered = filter(function ($x) {
             return $x !== 1;
-        })()($arr);
+        })($arr);
 
         $this->assertEquals([2, 3], $arrFiltered);
+
+        $arr = ["a" => "a", "b" => "b", "c" => "c"];
+        $arrFiltered = filter(function ($x, $k) {
+            return $x !== "a" && $k !== "b";
+        })($arr);
+
+        $this->assertEquals(["c" => "c"], $arrFiltered);
     }
 }

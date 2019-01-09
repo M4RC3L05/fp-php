@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Iterable;
+namespace Tests\Lists;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\Iterable\some;
+use function FPPHP\Lists\some;
 
 
 class SomeTest extends TestCase

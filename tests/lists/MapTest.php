@@ -17,5 +17,13 @@ class MapTest extends TestCase
 
         $this->assertEquals([1, 2, 3], $arr);
         $this->assertEquals([2, 3, 4], $arrMapped);
+
+        $arr = ["a" => "a", "b" => "b"];
+        $arrMapped = map(function ($x) {
+            return "c";
+        })($arr);
+
+        $this->assertEquals(["a" => "a", "b" => "b"], $arr);
+        $this->assertEquals(["a" => "c", "b" => "c"], $arrMapped);
     }
 }

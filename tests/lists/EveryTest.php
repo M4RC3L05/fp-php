@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Iterable;
+namespace Tests\Lists;
 
 use PHPUnit\Framework\TestCase;
-use function FPPHP\Iterable\every;
+use function FPPHP\Lists\every;
 
 
 class EveryTest extends TestCase
@@ -21,5 +21,17 @@ class EveryTest extends TestCase
         })([2, 2, 2]);
 
         $this->assertTrue($res);
+
+        $res = every(function ($x) {
+            return $x === "a";
+        })(["a" => "a", "b" => "a"]);
+
+        $this->assertTrue($res);
+
+        $res = every(function ($x, $k) {
+            return $k === "a";
+        })(["a" => "a", "b" => "a"]);
+
+        $this->assertFalse($res);
     }
 }

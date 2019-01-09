@@ -2,7 +2,7 @@
 
 namespace FPPHP\Functions;
 
-use function FPPHP\Iterable\reduce;
+use function FPPHP\Lists\reduce;
 
 function pipe(...$fns)
 {
