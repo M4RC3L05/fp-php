@@ -12,4 +12,4 @@ matrix:
     fast_finish: true
 
 before_script: composer install
-script: vendor/bin/phpunit --debug
+script: vendor/bin/phpunit
