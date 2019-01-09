@@ -1,4 +1,7 @@
 {
+    "require": {
+        "php": "^7.1"
+    },
     "autoload": {
         "files": [
             "src/lists/forevery.php",
