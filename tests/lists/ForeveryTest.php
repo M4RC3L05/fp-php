@@ -5,19 +5,6 @@ namespace Tests\Lists;
 use PHPUnit\Framework\TestCase;
 use function FPPHP\Lists\forEvery;
 
-class D
-{
-    static function a($v, $k)
-    {
-        echo "{$k}{$v} ";
-    }
-
-    function b($v, $k)
-    {
-        echo "{$k}{$v} ";
-    }
-}
-
 class ForeveryTest extends TestCase
 {
     public function test_it_should_loop_an_iterable()
@@ -65,20 +52,5 @@ class ForeveryTest extends TestCase
         ]);
         $out4 = \ob_get_clean();
         $this->assertEquals($out4, "aa bb cc ");
-
-        \ob_start();
-        forEvery([D::class, "a"])([1, 2, 3]);
-        $out5 = \ob_get_clean();
-        $this->assertEquals($out5, "01 12 23 ");
-
-        \ob_start();
-        forEvery([D::class, "b"])([1, 2, 3]);
-        $out6 = \ob_get_clean();
-        $this->assertEquals($out6, "01 12 23 ");
-
-        \ob_start();
-        forEvery([D::class, "b"])(["a" => "a", "b" => "b"]);
-        $out6 = \ob_get_clean();
-        $this->assertEquals($out6, "aa bb ");
     }
 }
