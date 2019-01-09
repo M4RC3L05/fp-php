@@ -7,20 +7,14 @@ use function FPPHP\Functions\compose;
 function tail($iterable)
 {
     if (\is_array($iterable))
-        return compose("\\array_reverse", function ($arr) {
-        \array_pop($arr);
-        return $arr;
-    }, "\\array_reverse", "\\array_values")($iterable);
+        return takeLast(count($iterable) - 1)($iterable);
 
 
     if (\is_object($iterable) && ($iterable instanceof \Iterator)) {
-        return compose("\\array_reverse", function ($arr) {
-            \array_pop($arr);
-            return $arr;
-        }, "\\array_reverse", function ($it) {
-            return \iterator_to_array($it, false);
-        })($iterable);
+        $arr = \iterator_to_array($iterable, true);
+        return takeLast(count($arr) - 1)($arr);
     }
+
 
 
     return [];

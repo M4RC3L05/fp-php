@@ -8,7 +8,7 @@ function head($iterable)
         return \array_values($iterable)[0];
 
     if (\is_object($iterable) && ($iterable instanceof \Iterator))
-        return \iterator_to_array($iterable, false)[0];
+        return \array_values(\iterator_to_array($iterable, true))[0];
 
 
     return null;

@@ -16,6 +16,7 @@ class TailTest extends TestCase
             yield 3;
         })();
         $res = tail($gen);
+
         $this->assertEquals([2, 3], $res);
 
         $res = tail([2, 2, 2]);
@@ -23,9 +24,9 @@ class TailTest extends TestCase
 
         $ai = (new \ArrayIterator(["a" => "a", "b" => "b"]));
         $res = tail($ai);
-        $this->assertEquals(["b"], $res);
+        $this->assertEquals(["b" => "b"], $res);
 
         $res = tail(["a" => "a", "b" => "b", "c" => "c"]);
-        $this->assertEquals(["b", "c"], $res);
+        $this->assertEquals(["b" => "b", "c" => "c"], $res);
     }
 }
