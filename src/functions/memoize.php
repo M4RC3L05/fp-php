@@ -8,7 +8,7 @@ function memoize($fn)
 
     return function (...$args) use (&$memo, $fn) {
 
-        $argsStr = implode("", $args);
+        $argsStr = \json_encode($args);
 
         if (array_key_exists($argsStr, $memo)) return $memo[$argsStr];
 
