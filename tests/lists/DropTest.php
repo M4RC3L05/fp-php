@@ -29,5 +29,10 @@ class DropTest extends TestCase
 
         $res = drop(-1)($arr);
         $this->assertEquals([1, 2, 3], $res);
+
+        $arr = ["a" => "a", "b" => "b"];
+
+        $res = drop(1)($arr);
+        $this->assertEquals(["b" => "b"], $res);
     }
 }
