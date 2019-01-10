@@ -15,5 +15,11 @@ class TakeLastTest extends TestCase
 
         $res = takeLast(2)(["a" => "a", "b" => "b", "c" => "c"]);
         $this->assertEquals(["b" => "b", "c" => "c"], $res);
+
+        $res = takeLast(4)(["a" => "a", "b" => "b", "c" => "c"]);
+        $this->assertEquals(["a" => "a", "b" => "b", "c" => "c"], $res);
+
+        $res = takeLast(-1)(["a" => "a", "b" => "b", "c" => "c"]);
+        $this->assertEquals([], $res);
     }
 }

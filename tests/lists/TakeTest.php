@@ -15,5 +15,11 @@ class TakeTest extends TestCase
 
         $res = take(2)(["a" => "a", "b" => "b", "c" => "c"]);
         $this->assertEquals(["a" => "a", "b" => "b"], $res);
+
+        $res = take(4)(["a" => "a", "b" => "b", "c" => "c"]);
+        $this->assertEquals(["a" => "a", "b" => "b", "c" => "c"], $res);
+
+        $res = take(-1)(["a" => "a", "b" => "b", "c" => "c"]);
+        $this->assertEquals([], $res);
     }
 }
