@@ -43,7 +43,7 @@ class ForeveryTest extends TestCase
 
         //assoc arrays
         \ob_start();
-        forEvery(function ($v, $k) {
+        $r = forEvery(function ($v, $k) {
             echo "{$k}{$v} ";
         })([
             "a" => "a",
@@ -52,5 +52,10 @@ class ForeveryTest extends TestCase
         ]);
         $out4 = \ob_get_clean();
         $this->assertEquals($out4, "aa bb cc ");
+        $this->assertEquals([
+            "a" => "a",
+            "b" => "b",
+            "c" => "c"
+        ], $r);
     }
 }
