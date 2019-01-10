@@ -8,7 +8,7 @@ use function FPPHP\Lists\dropLast;
 
 class DropLastTest extends TestCase
 {
-    public function test()
+    public function test_it_should_drop_n_elements_from_the_end()
     {
         $arr = [1, 2, 3];
 
