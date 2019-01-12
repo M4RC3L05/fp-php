@@ -6,9 +6,9 @@ function fromPairs($arr)
 {
     $tmp = [];
 
-    forEvery(function ($x) use (&$tmp) {
-        $tmp[$x[0]] = $x[1];
-    })($arr);
+    foreach ($arr as $key => $value) {
+        $tmp[$value[0]] = $value[1];
+    }
 
     return $tmp;
 }

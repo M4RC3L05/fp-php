@@ -8,15 +8,15 @@ function filter($fn)
         $isAssoc = \array_values($iterable) !== $iterable;
         $tmpArr = [];
 
-        forEvery(function ($v, $k) use ($isAssoc, &$tmpArr, $fn) {
-            if (\call_user_func_array($fn, [&$v, &$k])) {
+        foreach ($iterable as $key => $value) {
+            if (\call_user_func_array($fn, [&$value, &$key])) {
                 if ($isAssoc) {
-                    $tmpArr[$k] = $v;
+                    $tmpArr[$key] = $value;
                 } else {
-                    \array_push($tmpArr, $v);
+                    \array_push($tmpArr, $value);
                 }
             }
-        })($iterable);
+        }
 
         return $tmpArr;
     };

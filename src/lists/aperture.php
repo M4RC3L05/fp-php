@@ -16,24 +16,24 @@ function aperture($num)
         $isAssoc = \array_values($arr) !== $arr;
         $tmpArr = [[]];
 
-        forEvery(function ($x, $k) use (&$pairs, &$curr, &$tmpArr, $num, $isAssoc) {
+        foreach ($arr as $key => $value) {
             if ($pairs > $num - 1) {
                 $pairs = 0;
                 $curr += 1;
                 if ($isAssoc)
-                    $tmpArr[$curr] = [$k => $x];
+                    $tmpArr[$curr] = [$key => $value];
                 else
-                    $tmpArr[$curr] = [$x];
+                    $tmpArr[$curr] = [$value];
                 $pairs += 1;
             } else {
                 if ($isAssoc)
-                    $tmpArr[$curr][$k] = $x;
+                    $tmpArr[$curr][$key] = $value;
 
-                else \array_push($tmpArr[$curr], $x);
+                else \array_push($tmpArr[$curr], $value);
 
                 $pairs += 1;
             }
-        })($arr);
+        }
 
         return $tmpArr;
     };

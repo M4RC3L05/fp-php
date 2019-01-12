@@ -8,14 +8,14 @@ function insert($pos)
         return function ($arr) use ($val, $pos) {
             $tmpArr = [];
 
-            forEvery(function ($x, $k) use (&$val, $pos, &$tmpArr) {
+            foreach ($arr as $k => $x) {
                 if ($k + 1 === $pos) {
                     \array_push($tmpArr, $x);
                     \array_push($tmpArr, $val);
                 } else {
                     \array_push($tmpArr, $x);
                 }
-            })($arr);
+            }
 
             return $tmpArr;
         };

@@ -7,10 +7,10 @@ function groupBy($fn)
     return function ($arr) use ($fn) {
         $tmpArr = [];
 
-        forEvery(function ($x) use (&$tmpArr, &$fn) {
+        foreach ($arr as $k => $x) {
             $key = \call_user_func_array($fn, [&$x]);
             \array_key_exists($key, $tmpArr) ? \array_push($tmpArr[$key], $x) : $tmpArr[$key] = [$x];
-        })($arr);
+        }
 
         return $tmpArr;
     };

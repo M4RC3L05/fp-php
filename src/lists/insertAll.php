@@ -9,16 +9,16 @@ function insertAll($pos)
 
             $tmpArr = [];
 
-            forEvery(function ($x, $k) use ($arr1, $pos, &$tmpArr) {
+            foreach ($arr2 as $k => $x) {
                 if ($k + 1 === $pos) {
                     \array_push($tmpArr, $x);
-                    forEvery(function ($x, $y) use (&$tmpArr) {
+                    foreach ($arr1 as $k => $x) {
                         \array_push($tmpArr, $x);
-                    })($arr1);
+                    }
                 } else {
                     \array_push($tmpArr, $x);
                 }
-            })($arr2);
+            }
 
             return $tmpArr;
         };
