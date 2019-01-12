@@ -2,10 +2,8 @@
 
 namespace FPPHP\Lists;
 
-use function FPPHP\Functions\compose;
-
-
-function last($iterable)
+function last($arr)
 {
-    return head(\array_reverse($iterable));
+    if (\count($arr) <= 0) return null;
+    return head(reverse(true)($arr));
 }

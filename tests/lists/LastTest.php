@@ -8,13 +8,16 @@ use function FPPHP\Lists\last;
 
 class LastTest extends TestCase
 {
-    public function test_it_should_return_the_last_elemento_of_iterable()
+    public function test_it_should_return_the_last_item()
     {
+        $arr = [1, 2, 3];
+        $res = last($arr);
+        $this->assertEquals(3, $res);
 
-        $res = last([2, 2, 2]);
-        $this->assertEquals($res, 2);
+        $res = last([]);
+        $this->assertEquals(null, $res);
 
         $res = last(["a" => "a", "b" => "b"]);
-        $this->assertEquals($res, "b");
+        $this->assertEquals("b", $res);
     }
 }
