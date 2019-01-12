@@ -7,8 +7,6 @@ function move($from)
     return function ($to) use ($from) {
         return function ($arr) use ($from, $to) {
 
-
-
             $tmpArr = \array_slice($arr, 0);
 
             $f = ($from < 0 ? \count($arr) + $from : $from);
