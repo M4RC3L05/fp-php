@@ -21,5 +21,9 @@ class PluckTest extends TestCase
         $arr = [["age" => 29], ["age" => 27]];
         $res = pluck("age")($arr);
         $this->assertEquals([29, 27], $res);
+
+        $arr = [];
+        $res = pluck("age")($arr);
+        $this->assertEquals([], $res);
     }
 }
