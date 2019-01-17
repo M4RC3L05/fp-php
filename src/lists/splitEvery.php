@@ -5,6 +5,7 @@ namespace FPPHP\Lists;
 function splitEvery($num)
 {
     return function ($arr) use ($num) {
+        if (count($arr) <= 0) return [];
 
         if ($num <= 0) return [];
 

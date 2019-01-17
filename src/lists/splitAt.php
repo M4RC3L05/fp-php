@@ -5,6 +5,8 @@ namespace FPPHP\Lists;
 function splitAt($num)
 {
     return function ($arr) use ($num) {
+        if (count($arr) <= 0) return [];
+
         $positiveNum = ($num < 0 ? \count($arr) + $num : $num);
         $values = \array_values($arr);
         $curr = 0;
