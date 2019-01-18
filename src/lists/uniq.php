@@ -2,7 +2,7 @@
 
 namespace FPPHP\Lists;
 
-function uniq($arr)
+function uniq(array $arr)
 {
     $isAssoc = \array_values($arr) !== $arr;
     $tmpArr = [];

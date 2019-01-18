@@ -2,7 +2,7 @@
 
 namespace FPPHP\Lists;
 
-function unfold($iterFn)
+function unfold(callable $iterFn)
 {
     return function ($seed) use ($iterFn) {
         $tmpArr = [];
@@ -10,7 +10,7 @@ function unfold($iterFn)
 
         $res = null;
 
-        while ($res = \call_user_func_array($iterFn, [&$innerSeed])) {
+        while ($res = $iterFn($innerSeed)) {
             \array_push($tmpArr, $res[0]);
             $innerSeed = $res[1];
         }

@@ -2,7 +2,7 @@
 
 namespace FPPHP\Lists;
 
-function transpose($arr)
+function transpose(array $arr)
 {
     $tmpArr = [];
 
