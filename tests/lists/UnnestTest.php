@@ -17,5 +17,9 @@ class UnnestTest extends TestCase
         $arr = [[], [2, 3], [4, 5], [6, 7]];
         $res = unnest($arr);
         $this->assertEquals([2, 3, 4, 5, 6, 7], $res);
+
+        $arr = [["a" => "b"], ["c" => "d"], "e" => "f"];
+        $res = unnest($arr);
+        $this->assertEquals(["a" => "b", "c" => "d", "e" => "f"], $res);
     }
 }
