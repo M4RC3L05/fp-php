@@ -2,11 +2,11 @@
 
 namespace FPPHP\Lists;
 
-function find($perdicate)
+function find(callable $perdicate)
 {
-    return function ($arr) use ($perdicate) {
+    return function (array $arr) use ($perdicate) {
         foreach ($arr as $key => $value) {
-            if (\call_user_func_array($perdicate, [&$value, &$key])) return $value;
+            if ($perdicate($value, $key)) return $value;
         }
 
         return null;

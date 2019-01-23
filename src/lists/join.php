@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function join($separator)
+function join(string $separator)
 {
-    return function ($arr) use ($separator) {
+    return function (array $arr) use ($separator) {
         return \implode($separator, $arr);
     };
 }

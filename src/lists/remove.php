@@ -2,10 +2,10 @@
 
 namespace FPPHP\Lists;
 
-function remove($from)
+function remove(int $from)
 {
-    return function ($count) use ($from) {
-        return function ($arr) use ($from, $count) {
+    return function (int $count) use ($from) {
+        return function (array $arr) use ($from, $count) {
             if (\count($arr) <= 0) return [];
 
             $fromPositive = ($from < 0 ? \count($arr) + $from : $from);

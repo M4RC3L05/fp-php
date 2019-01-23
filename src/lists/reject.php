@@ -2,11 +2,11 @@
 
 namespace FPPHP\Lists;
 
-function reject($perdicate)
+function reject(callable $perdicate)
 {
-    return function ($arr) use ($perdicate) {
+    return function (array $arr) use ($perdicate) {
         return filter(function ($x, $y) use ($perdicate) {
-            return !\call_user_func_array($perdicate, [&$x, &$y]);
+            return !$perdicate($x, $y);
         })($arr);
     };
 }

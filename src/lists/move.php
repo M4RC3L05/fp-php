@@ -2,10 +2,10 @@
 
 namespace FPPHP\Lists;
 
-function move($from)
+function move(int $from)
 {
-    return function ($to) use ($from) {
-        return function ($arr) use ($from, $to) {
+    return function (int $to) use ($from) {
+        return function (array $arr) use ($from, $to) {
             if (count($arr) <= 0) return $arr;
 
             $tmpArr = \array_slice($arr, 0);

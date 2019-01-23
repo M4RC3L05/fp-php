@@ -2,7 +2,7 @@
 
 namespace FPPHP\Lists;
 
-function dropRepeats($arr)
+function dropRepeats(array $arr)
 {
     $tmpArr = [];
     $loopArr = \array_slice($arr, 0);

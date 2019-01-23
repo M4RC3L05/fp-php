@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function map($fn)
+function map(callable $fn)
 {
-    return function ($iterable) use ($fn) {
+    return function (array $iterable) use ($fn) {
         return \array_map($fn, $iterable);
     };
 }

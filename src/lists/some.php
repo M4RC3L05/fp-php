@@ -5,11 +5,11 @@ namespace FPPHP\Lists;
 use function FPPHP\Utils\isIterable;
 
 
-function some($condition)
+function some(callable $condition)
 {
-    return function ($iterable) use ($condition) {
+    return function (array $iterable) use ($condition) {
         foreach ($iterable as $k => $v)
-            if (\call_user_func_array($condition, [&$v])) return true;
+            if ($condition($v)) return true;
 
         return false;
     };

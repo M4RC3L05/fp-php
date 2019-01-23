@@ -5,6 +5,17 @@ namespace Tests\Lists;
 use PHPUnit\Framework\TestCase;
 use function FPPHP\Lists\pluck;
 
+class Person2
+{
+    public $name;
+    public $country;
+
+    public function __construct($name, $country)
+    {
+        $this->name = $name;
+        $this->country = $country;
+    }
+}
 
 class PluckTest extends TestCase
 {
@@ -21,6 +32,14 @@ class PluckTest extends TestCase
         $arr = [["age" => 29], ["age" => 27]];
         $res = pluck("age")($arr);
         $this->assertEquals([29, 27], $res);
+
+        $arr = [new Person2("João", "a"), new Person2("Ana", "b")];
+        $res = pluck("name")($arr);
+        $this->assertEquals(["João", "Ana"], $res);
+
+        $arr = ["a" => new Person2("João", "a"), "b" => new Person2("Ana", "b")];
+        $res = pluck("name")($arr);
+        $this->assertEquals(["a" => "João", "b" => "Ana"], $res);
 
         $arr = [];
         $res = pluck("age")($arr);

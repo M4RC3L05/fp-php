@@ -2,10 +2,10 @@
 
 namespace FPPHP\Lists;
 
-function reduceRight($fn)
+function reduceRight(callable $fn)
 {
     return function ($init) use ($fn) {
-        return function ($iterable) use ($fn, $init) {
+        return function (array $iterable) use ($fn, $init) {
             return \array_reduce(\array_reverse($iterable), $fn, $init);
         };
     };

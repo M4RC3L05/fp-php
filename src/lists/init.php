@@ -2,7 +2,7 @@
 
 namespace FPPHP\Lists;
 
-function init($arr)
+function init(array $arr)
 {
     return take(\count($arr) - 1)($arr);
 }

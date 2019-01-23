@@ -5,7 +5,7 @@ namespace FPPHP\Lists;
 function update($updatePos)
 {
     return function ($ele) use ($updatePos) {
-        return function ($arr) use ($ele, $updatePos) {
+        return function (array $arr) use ($ele, $updatePos) {
             $isAssoc = \array_values($arr) !== $arr;
 
             if ($isAssoc) {

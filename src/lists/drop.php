@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function drop($dropNum)
+function drop(int $dropNum)
 {
-    return function ($arr) use ($dropNum) {
+    return function (array $arr) use ($dropNum) {
 
         if ($dropNum < 0) return \array_slice($arr, 0);
 

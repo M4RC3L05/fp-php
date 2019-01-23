@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function dropRepeatsWith($perdicate)
+function dropRepeatsWith(callable $perdicate)
 {
-    return function ($arr) use ($perdicate) {
+    return function (array $arr) use ($perdicate) {
         $tmpArr = [];
         $loopArr = \array_slice($arr, 0);
         $isAssoc = \array_values($arr) !== $arr;
@@ -12,7 +12,7 @@ function dropRepeatsWith($perdicate)
 
         foreach ($loopArr as $key => $value) {
             $next = next($loopArr);
-            if (!\call_user_func_array($perdicate, [&$value, &$next])) {
+            if (!$perdicate($value, $next)) {
                 if ($isAssoc) {
                     $tmpArr[$key] = $curr;
                     $curr = $next;

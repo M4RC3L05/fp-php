@@ -2,13 +2,13 @@
 
 namespace FPPHP\Lists;
 
-function takeLastWhile($perdicate)
+function takeLastWhile(callable $perdicate)
 {
-    return function ($arr) use ($perdicate) {
+    return function (array $arr) use ($perdicate) {
         $fromAt = 0;
 
         foreach (\array_reverse($arr) as $key => $value) {
-            if (!\call_user_func_array($perdicate, [&$value])) break;
+            if (!$perdicate($value)) break;
 
             $fromAt += 1;
         }

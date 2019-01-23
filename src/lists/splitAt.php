@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function splitAt($num)
+function splitAt(int $num)
 {
-    return function ($arr) use ($num) {
+    return function (array $arr) use ($num) {
         if (count($arr) <= 0) return [];
 
         $positiveNum = ($num < 0 ? \count($arr) + $num : $num);

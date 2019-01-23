@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function nth($pos)
+function nth(int $pos)
 {
-    return function ($arr) use ($pos) {
+    return function (array $arr) use ($pos) {
         if (count($arr) <= 0) return null;
 
         $positivePos = ($pos < 0 ? \count($arr) + $pos : $pos);

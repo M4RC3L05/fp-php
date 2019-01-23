@@ -2,11 +2,11 @@
 
 namespace FPPHP\Functions;
 
-function partial($fn)
+function partial(callable $fn)
 {
-    return function ($firstArgs) use ($fn) {
+    return function (array $firstArgs) use ($fn) {
         return function (...$rest) use ($firstArgs, $fn) {
-            return \call_user_func_array($fn, \array_merge($firstArgs, $rest));
+            return $fn(...\array_merge($firstArgs, $rest));
         };
     };
 }

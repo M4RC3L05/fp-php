@@ -2,7 +2,7 @@
 
 namespace FPPHP\Lists;
 
-function head($iterable)
+function head(array $iterable)
 {
     if (count($iterable) <= 0) return null;
 

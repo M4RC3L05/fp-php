@@ -2,7 +2,7 @@
 
 namespace FPPHP\Functions;
 
-function memoize($fn)
+function memoize(callable $fn)
 {
     $memo = [];
 

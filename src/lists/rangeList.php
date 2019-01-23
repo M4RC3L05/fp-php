@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function rangeList($from)
+function rangeList(int $from)
 {
-    return function ($to) use ($from) {
+    return function (int $to) use ($from) {
         return \range($from, $to);
     };
 }

@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function partition($perdicate)
+function partition(callable $perdicate)
 {
-    return function ($arr) use ($perdicate) {
+    return function (array $arr) use ($perdicate) {
 
         if (\count($arr) <= 0) return [[], []];
 

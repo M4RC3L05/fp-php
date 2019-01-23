@@ -2,14 +2,15 @@
 
 namespace FPPHP\Lists;
 
-function reduceBy($fn)
+function reduceBy(callable $fn)
 {
     return function ($valAcc) use ($fn) {
-        return function ($keyFn) use ($valAcc, $fn) {
-            return function ($arr) use ($valAcc, $fn, $keyFn) {
+        return function (callable $keyFn) use ($valAcc, $fn) {
+            return function (array $arr) use ($valAcc, $fn, $keyFn) {
                 return reduce(function ($acc, $curr) use ($keyFn, $fn, $valAcc) {
-                    $key = \call_user_func_array($keyFn, [&$curr]);
-                    $acc[$key] = \call_user_func_array($fn, [(\array_key_exists($key, $acc) ? $acc[$key] : $valAcc), &$curr]);
+                    $toArr = (array)$curr;
+                    $key = $keyFn($toArr);
+                    $acc[$key] = $fn((\array_key_exists($key, $acc) ? $acc[$key] : $valAcc), $toArr);
                     return $acc;
                 })($valAcc)($arr);
             };

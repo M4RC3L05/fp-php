@@ -2,13 +2,13 @@
 
 namespace FPPHP\Lists;
 
-function groupBy($fn)
+function groupBy(callable $fn)
 {
-    return function ($arr) use ($fn) {
+    return function (array $arr) use ($fn) {
         $tmpArr = [];
 
         foreach ($arr as $k => $x) {
-            $key = \call_user_func_array($fn, [&$x]);
+            $key = $fn($x);
             \array_key_exists($key, $tmpArr) ? \array_push($tmpArr[$key], $x) : $tmpArr[$key] = [$x];
         }
 

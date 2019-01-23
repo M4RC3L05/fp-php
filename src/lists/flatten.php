@@ -2,7 +2,7 @@
 
 namespace FPPHP\Lists;
 
-function flatten($arr)
+function flatten(array $arr)
 {
     if (\count($arr) <= 0) return [];
 

@@ -2,10 +2,10 @@
 
 namespace FPPHP\Lists;
 
-function reduce($fn)
+function reduce(callable $fn)
 {
     return function ($init) use ($fn) {
-        return function ($iterable) use ($fn, $init) {
+        return function (array $iterable) use ($fn, $init) {
             return \array_reduce($iterable, $fn, $init);
         };
     };

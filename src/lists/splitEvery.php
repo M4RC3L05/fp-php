@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function splitEvery($num)
+function splitEvery(int $num)
 {
-    return function ($arr) use ($num) {
+    return function (array $arr) use ($num) {
         if (count($arr) <= 0) return [];
 
         if ($num <= 0) return [];

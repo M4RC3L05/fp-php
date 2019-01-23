@@ -5,6 +5,17 @@ namespace Tests\Lists;
 use PHPUnit\Framework\TestCase;
 use function FPPHP\Lists\indexBy;
 
+class Person
+{
+    public $name;
+    public $country;
+
+    public function __construct($name, $country)
+    {
+        $this->name = $name;
+        $this->country = $country;
+    }
+}
 
 class IndexByTest extends TestCase
 {
@@ -27,5 +38,14 @@ class IndexByTest extends TestCase
 
         $this->assertEquals([], $res);
 
+        $arr = [
+            new Person("João", "Portugal"),
+            new Person("Ana", "Brasil"),
+        ];
+        $res = indexBy(function ($x) {
+            return $x["name"];
+        })($arr);
+
+        $this->assertEquals(["João" => new Person("João", "Portugal"), "Ana" => new Person("Ana", "Brasil")], $res);
     }
 }

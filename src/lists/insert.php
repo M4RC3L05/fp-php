@@ -2,10 +2,10 @@
 
 namespace FPPHP\Lists;
 
-function insert($pos)
+function insert(int $pos)
 {
     return function ($val) use ($pos) {
-        return function ($arr) use ($val, $pos) {
+        return function (array $arr) use ($val, $pos) {
             $tmpArr = [];
 
             foreach ($arr as $k => $x) {

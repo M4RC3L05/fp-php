@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function concat($arr1)
+function concat(array $arr1)
 {
-    return function ($arr2) use ($arr1) {
+    return function (array $arr2) use ($arr1) {
         return \array_merge($arr1, $arr2);
     };
 }

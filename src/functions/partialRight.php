@@ -2,11 +2,11 @@
 
 namespace FPPHP\Functions;
 
-function partialRight($fn)
+function partialRight(callable $fn)
 {
-    return function ($lastArgs) use ($fn) {
+    return function (array $lastArgs) use ($fn) {
         return function (...$firsts) use ($fn, $lastArgs) {
-            return \call_user_func_array($fn, \array_merge($firsts, $lastArgs));
+            return $fn(...\array_merge($firsts, $lastArgs));
         };
     };
 }

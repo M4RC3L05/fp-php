@@ -2,16 +2,16 @@
 
 namespace FPPHP\Lists;
 
-function mapAccumRight($fn)
+function mapAccumRight(callable $fn)
 {
     return function ($acc) use ($fn) {
-        return function ($arr) use ($fn, $acc) {
+        return function (array $arr) use ($fn, $acc) {
 
             $res = [];
             $tuple = [$acc];
 
             foreach (reverse(true)($arr) as $key => $value) {
-                $tuple = \call_user_func_array($fn, [&$tuple[0], &$value]);
+                $tuple = $fn($tuple[0], $value);
                 $res[$key] = $tuple[1];
             }
 

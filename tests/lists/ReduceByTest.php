@@ -14,7 +14,7 @@ class ReduceByTest extends TestCase
             return \array_merge($acc, [$curr["name"]]);
         };
 
-        $toGrade = function ($person) {
+        $toGrade = function (array $person) {
             $score = $person["score"];
 
             return ($score < 65 ? 'F' : ($score < 70 ? 'D' : ($score < 80 ? 'C' :
@@ -26,7 +26,11 @@ class ReduceByTest extends TestCase
             ["name" => 'Abby', "score" => 83],
             ["name" => 'Bart', "score" => 62],
             ["name" => 'Curt', "score" => 88],
-            ["name" => 'Dora', "score" => 92]
+            new class
+            {
+                public $name = 'Dora';
+                public $score = 92;
+            }
         ];
 
         $res = reduceBy($groupNames)([])($toGrade)($students);

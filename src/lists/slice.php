@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function slice($from)
+function slice(int $from)
 {
-    return function ($to) use ($from) {
+    return function (int $to) use ($from) {
         return function ($arr) use ($to, $from) {
             return \array_slice($arr, $from, $to - $from);
         };

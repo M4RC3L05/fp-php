@@ -2,7 +2,7 @@
 
 namespace FPPHP\Lists;
 
-function fromPairs($arr)
+function fromPairs(array $arr)
 {
     $tmp = [];
 

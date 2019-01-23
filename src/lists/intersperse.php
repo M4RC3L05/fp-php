@@ -4,7 +4,7 @@ namespace FPPHP\Lists;
 
 function intersperse($val)
 {
-    return function ($arr) use ($val) {
+    return function (array $arr) use ($val) {
         $tmpArr = [];
 
         foreach ($arr as $key => $value) {

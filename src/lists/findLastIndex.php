@@ -2,11 +2,11 @@
 
 namespace FPPHP\Lists;
 
-function findLastIndex($perdicate)
+function findLastIndex(callable $perdicate)
 {
-    return function ($arr) use ($perdicate) {
+    return function (array $arr) use ($perdicate) {
         foreach (reverse()($arr) as $key => $value) {
-            if (\call_user_func_array($perdicate, [&$value, &$key])) return $key;
+            if ($perdicate($value, $key)) return $key;
         }
 
         return -1;

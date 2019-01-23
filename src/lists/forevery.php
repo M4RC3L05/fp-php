@@ -2,14 +2,12 @@
 
 namespace FPPHP\Lists;
 
-use function FPPHP\Utils\isIterable;
 
-
-function forEvery($action)
+function forEvery(callable $action)
 {
-    return function ($data) use ($action) {
+    return function (iterable $data) use ($action) {
         foreach ($data as $k => $v)
-            \call_user_func_array($action, [&$v, &$k]);
+            $action($v, $k);
 
         return $data;
     };

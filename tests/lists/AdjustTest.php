@@ -24,5 +24,10 @@ class AdjustTest extends TestCase
             return $x * 2;
         })([1, 2, 3]);
         $this->assertEquals([1, 2, 3], $res);
+
+        $res = adjust(1)(function ($x) {
+            return $x * 2;
+        })(["a" => 1, "b" => 2, "c" => 3]);
+        $this->assertEquals(["a" => 1, "b" => 4, "c" => 3], $res);
     }
 }

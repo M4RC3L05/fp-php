@@ -2,11 +2,11 @@
 
 namespace FPPHP\Lists;
 
-function findIndex($perdicate)
+function findIndex(callable $perdicate)
 {
-    return function ($arr) use ($perdicate) {
+    return function (array $arr) use ($perdicate) {
         foreach ($arr as $key => $value) {
-            if (\call_user_func_array($perdicate, [&$value, &$key])) return $key;
+            if ($perdicate($value, $key)) return $key;
         }
 
         return -1;

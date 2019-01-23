@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function groupWith($perdicate)
+function groupWith(callable $perdicate)
 {
-    return function ($arr) use ($perdicate) {
+    return function (array $arr) use ($perdicate) {
 
         $arrValues = \array_values($arr);
         $isAssoc = $arrValues !== $arr;
@@ -20,7 +20,7 @@ function groupWith($perdicate)
         while ($currIndex < $tot) {
             $nextId = $currIndex + 1;
 
-            while ($nextId < $tot && \call_user_func_array($perdicate, [&$arrValues[$nextId - 1], &$arrValues[$nextId]])) {
+            while ($nextId < $tot && $perdicate($arrValues[$nextId - 1], $arrValues[$nextId])) {
                 $nextId += 1;
             }
 

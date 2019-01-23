@@ -2,7 +2,7 @@
 
 namespace FPPHP\Lists;
 
-function mergeAll($arr)
+function mergeAll(array $arr)
 {
     return reduce(function ($acc, $curr) {
         return \array_merge($acc, $curr);
