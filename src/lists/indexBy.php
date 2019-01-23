@@ -8,7 +8,7 @@ function indexBy(callable $fn)
         $tmpArr = [];
 
         foreach ($assocArr as $key => $value) {
-            $key = $fn((array)$value);
+            $key = $fn($value);
 
             $tmpArr[$key] = $value;
         }

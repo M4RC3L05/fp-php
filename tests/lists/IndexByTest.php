@@ -26,14 +26,14 @@ class IndexByTest extends TestCase
             ["name" => "Ana", "country" => "Brasil"],
         ];
         $res = indexBy(function ($x) {
-            return $x["country"];
+            return (is_array($x) ? $x["country"] : $x->country);
         })($arr);
 
         $this->assertEquals(["Portugal" => ["name" => "João", "country" => "Portugal"], "Brasil" => ["name" => "Ana", "country" => "Brasil"]], $res);
 
         $arr = [];
         $res = indexBy(function ($x) {
-            return $x["country"];
+            return (is_array($x) ? $x["country"] : $x->country);
         })($arr);
 
         $this->assertEquals([], $res);
@@ -43,7 +43,7 @@ class IndexByTest extends TestCase
             new Person("Ana", "Brasil"),
         ];
         $res = indexBy(function ($x) {
-            return $x["name"];
+            return (is_array($x) ? $x["name"] : $x->name);
         })($arr);
 
         $this->assertEquals(["João" => new Person("João", "Portugal"), "Ana" => new Person("Ana", "Brasil")], $res);
