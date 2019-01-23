@@ -2,9 +2,9 @@
 
 namespace FPPHP\Lists;
 
-function aperture($num)
+function aperture(int $num)
 {
-    return function ($arr) use ($num) {
+    return function (array $arr) use ($num) {
         $tmpArr = [];
         $pairs = 0;
         $curr = 0;
