@@ -11,7 +11,7 @@ function dropLastWhile(callable $perdicate)
 
         $isAssoc = isAssoc($arr);
 
-        $arrToTraverse = reverse()($arr);
+        $arrToTraverse = reverse($arr);
 
         foreach ($arrToTraverse as $key => $value) {
             if (!$perdicate($value)) {

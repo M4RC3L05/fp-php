@@ -10,7 +10,7 @@ function mapAccumRight(callable $fn)
             $res = [];
             $tuple = [$acc];
 
-            foreach (reverse(true)($arr) as $key => $value) {
+            foreach (\array_reverse($arr, true) as $key => $value) {
                 $tuple = $fn($tuple[0], $value);
                 $res[$key] = $tuple[1];
             }

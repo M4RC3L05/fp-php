@@ -5,6 +5,6 @@ namespace FPPHP\Lists;
 function lastIndexOf($val)
 {
     return function (array $arr) use ($val) {
-        return indexOf($val)(reverse(true)($arr));
+        return indexOf($val)(\array_reverse($arr, true));
     };
 }
