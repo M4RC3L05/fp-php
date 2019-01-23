@@ -2,12 +2,15 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function uniqWith(callable $perdicate)
 {
     return function (array $arr) use ($perdicate) {
         $tmpArr = [];
         $values = [];
-        $isAssoc = \array_values($arr) !== $arr;
+        $isAssoc = isAssoc($arr);
 
         foreach ($arr as $key => $value) {
 

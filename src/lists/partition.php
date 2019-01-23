@@ -2,13 +2,16 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function partition(callable $perdicate)
 {
     return function (array $arr) use ($perdicate) {
 
         if (\count($arr) <= 0) return [[], []];
 
-        $isAssoc = \array_values($arr) !== $arr;
+        $isAssoc = isAssoc($arr);
 
         $tmpArr = [[], []];
 

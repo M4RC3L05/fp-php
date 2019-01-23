@@ -2,10 +2,13 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function filter(callable $fn)
 {
     return function (array $iterable) use ($fn) {
-        $isAssoc = \array_values($iterable) !== $iterable;
+        $isAssoc = isAssoc($iterable);
         $tmpArr = [];
 
         foreach ($iterable as $key => $value) {

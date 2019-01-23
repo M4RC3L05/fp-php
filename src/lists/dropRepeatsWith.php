@@ -2,12 +2,15 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function dropRepeatsWith(callable $perdicate)
 {
     return function (array $arr) use ($perdicate) {
         $tmpArr = [];
         $loopArr = \array_slice($arr, 0);
-        $isAssoc = \array_values($arr) !== $arr;
+        $isAssoc = isAssoc($arr);
         $curr = \current($loopArr);
 
         foreach ($loopArr as $key => $value) {

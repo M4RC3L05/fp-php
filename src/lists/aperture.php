@@ -2,6 +2,9 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function aperture(int $num)
 {
     return function (array $arr) use ($num) {
@@ -13,7 +16,7 @@ function aperture(int $num)
 
         if ($num === \count($arr)) return \array_slice($arr, 0);
 
-        $isAssoc = \array_values($arr) !== $arr;
+        $isAssoc = isAssoc($arr);
         $tmpArr = [[]];
 
         foreach ($arr as $key => $value) {

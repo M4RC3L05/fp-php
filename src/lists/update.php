@@ -2,11 +2,14 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function update($updatePos)
 {
     return function ($ele) use ($updatePos) {
         return function (array $arr) use ($ele, $updatePos) {
-            $isAssoc = \array_values($arr) !== $arr;
+            $isAssoc = isAssoc($arr);
 
             if ($isAssoc) {
 

@@ -2,10 +2,13 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function pluck($index)
 {
     return function (array $arr) use ($index) {
-        $isAssoc = \array_values($arr) !== $arr;
+        $isAssoc = isAssoc($arr);
 
         $tmpArr = [];
 

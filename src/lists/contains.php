@@ -2,10 +2,13 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function contains($val)
 {
     return function (array $toCompare) use ($val) {
-        $isAssocVal = (\is_array($val) && \array_values($val) !== $val);
+        $isAssocVal = (\is_array($val) && isAssoc($val));
 
         foreach ($toCompare as $key => $value) {
             if ($isAssocVal) {

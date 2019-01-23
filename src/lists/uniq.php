@@ -2,9 +2,12 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function uniq(array $arr)
 {
-    $isAssoc = \array_values($arr) !== $arr;
+    $isAssoc = isAssoc($arr);
     $tmpArr = [];
 
     foreach ($arr as $key => $value) {

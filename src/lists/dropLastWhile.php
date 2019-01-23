@@ -2,11 +2,14 @@
 
 namespace FPPHP\Lists;
 
+use function FPPHP\utils\isAssoc;
+
+
 function dropLastWhile(callable $perdicate)
 {
     return function (array $arr) use ($perdicate) {
 
-        $isAssoc = \array_values($arr) !== $arr;
+        $isAssoc = isAssoc($arr);
 
         $arrToTraverse = reverse()($arr);
 
