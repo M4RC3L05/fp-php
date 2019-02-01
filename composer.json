@@ -1,6 +1,6 @@
 {
     "name": "m4rc3l05/fp-php",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "description": "Colection of functional programming utilities for php",
     "require": {
         "php": "^7.1"
@@ -21,12 +21,6 @@
     "autoload": {
         "files": [
             "src/utils/isAssoc.php",
-            "src/functions/compose.php",
-            "src/functions/curry.php",
-            "src/functions/memoize.php",
-            "src/functions/pipe.php",
-            "src/functions/partial.php",
-            "src/functions/partialRight.php",
             "src/lists/forevery.php",
             "src/lists/reduce.php",
             "src/lists/last.php",
@@ -125,7 +119,13 @@
             "src/functions/apply.php",
             "src/functions/applySpec.php",
             "src/functions/applyTo.php",
-            "src/functions/ascend.php"
+            "src/functions/ascend.php",
+            "src/functions/compose.php",
+            "src/functions/curry.php",
+            "src/functions/memoize.php",
+            "src/functions/pipe.php",
+            "src/functions/partial.php",
+            "src/functions/partialRight.php"
         ]
     },
     "autoload-dev": {
