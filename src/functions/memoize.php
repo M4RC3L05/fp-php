@@ -2,6 +2,16 @@
 
 namespace FPPHP\Functions;
 
+/**
+ * 
+ * memoize: (* -> a) -> (* -> a)
+ * 
+ * Returns the memoized version of the function
+ * 
+ * @param callable $fn
+ * @return callable
+ * 
+ */
 function memoize(callable $fn)
 {
     $memo = [];

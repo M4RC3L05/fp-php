@@ -2,6 +2,16 @@
 
 namespace FPPHP\Functions;
 
+/**
+ * 
+ * curry: (* -> a) -> (* -> a)
+ * 
+ * Returns the curried version of the provided function
+ * 
+ * @param callable $fn
+ * @return callable
+ * 
+ */
 function curry(callable $fn)
 {
     $numOfArgs = (new \ReflectionFunction(\Closure::fromCallable($fn)))->getNumberOfRequiredParameters();

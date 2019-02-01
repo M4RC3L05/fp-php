@@ -2,9 +2,19 @@
 
 namespace FPPHP\Functions;
 
-function always($val)
+/**
+ * 
+ * always: x -> (* -> x)
+ * 
+ * Retuns a new function that always returns the given values.
+ * 
+ * @param mixed $value
+ * @return mixed $value
+ * 
+ */
+function always($value)
 {
-    return function () use ($val) {
-        return $val;
+    return function () use ($value) {
+        return $value;
     };
 }
