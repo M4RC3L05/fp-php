@@ -5,5 +5,5 @@
 
 # 0.1.2
 
--   Initial relise
+-   Initial release
 -   "All" function for lists done
