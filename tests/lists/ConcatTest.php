@@ -12,8 +12,10 @@ class ConcatTest extends TestCase
     {
         $contArr = concat([1])([1, 2, 3]);
         $contArr2 = concat(["a" => "a"])(["b" => "b"]);
+        $contArr3 = concat([1])(["b" => "b"]);
 
         $this->assertEquals([1, 1, 2, 3], $contArr);
         $this->assertEquals(["a" => "a", "b" => "b"], $contArr2);
+        $this->assertEquals(["b" => "b", 1], $contArr3);
     }
 }

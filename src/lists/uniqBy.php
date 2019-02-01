@@ -4,7 +4,18 @@ namespace FPPHP\Lists;
 
 use function FPPHP\utils\isAssoc;
 
-
+/**
+ * 
+ * uniqBy: (x -> y) -> [x] -> [x]
+ * 
+ * Returns a new array containing only one of each values based on 
+ * the value provided by the function
+ * 
+ * @param callable $fn
+ * @param array $list
+ * @return array
+ * 
+ */
 function uniqBy(callable $fn)
 {
     return function (array $arr) use ($fn) {

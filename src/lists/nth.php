@@ -2,15 +2,28 @@
 
 namespace FPPHP\Lists;
 
+/**
+ * 
+ * nth: int -> [x] -> x
+ * 
+ * Returns the nth value especified by the the $pos
+ * 
+ * @param int $pos
+ * @param array $list
+ * @return mixed
+ * 
+ */
 function nth(int $pos)
 {
-    return function (array $arr) use ($pos) {
-        if (count($arr) <= 0) return null;
+    return function (array $list) use ($pos) {
+        $size = \count($list);
 
-        $positivePos = ($pos < 0 ? \count($arr) + $pos : $pos);
+        if ($size <= 0) return null;
 
-        if ($positivePos >= \count($arr) || $positivePos < 0) return null;
+        $positivePos = ($pos < 0 ? $size + $pos : $pos);
 
-        return \array_values($arr)[$positivePos];
+        if ($positivePos >= $size || $positivePos < 0) return null;
+
+        return \array_values($list)[$positivePos];
     };
 }

@@ -2,17 +2,32 @@
 
 namespace FPPHP\Lists;
 
-function xprod(array $l1)
+use function FPPHP\utils\isAssoc;
+
+
+/**
+ * 
+ * xprod: [x] -> [y] -> [[x, y]]
+ * 
+ * Returns a new array with all possible conbinations between the
+ * 2 provided arrays
+ * 
+ * @param array $list1
+ * @param array $list2
+ * @return array
+ * 
+ */
+function xprod(array $list1)
 {
-    return function (array $l2) use ($l1) {
-        $isL1Assoc = \array_values($l1) !== $l1;
-        $isL2Assoc = \array_values($l2) !== $l2;
+    return function (array $list2) use ($list1) {
+        $isL1Assoc = isAssoc($list1);
+        $isL2Assoc = isAssoc($list2);
 
         $tmpArr = [];
         $curr = 0;
 
-        foreach ($l1 as $k1 => $v1) {
-            foreach ($l2 as $k2 => $v2) {
+        foreach ($list1 as $k1 => $v1) {
+            foreach ($list2 as $k2 => $v2) {
                 if (!\array_key_exists($curr, $tmpArr)) \array_push($tmpArr, []);
 
                 if ($isL1Assoc) {

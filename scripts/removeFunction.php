@@ -36,7 +36,7 @@
     });
     file_put_contents($composerPath, json_encode($composer));
 
-    echo "Dump autoload.";
+    echo "Dump autoload.\n";
     exec("composer dump-autoload -d {$base}");
 
     echo "All done!";

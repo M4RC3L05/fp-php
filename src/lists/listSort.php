@@ -2,27 +2,22 @@
 
 namespace FPPHP\Lists;
 
+/**
+ * 
+ * listSort: (x -> int) -> [x] -> [x]
+ * 
+ * Returns a new array sorted by the function provided (-1, 0, 1)
+ * 
+ * @param callable $fn
+ * @param array $list
+ * @return array
+ * 
+ */
 function listSort(callable $fn)
 {
-    return function (array $arr) use ($fn) {
-        $tmpArr = [];
-
-        for ($i = 0; $i < count($arr) - 1; $i += 2) {
-
-            $res = $fn($arr[$i], $arr[$i + 1]);
-
-            if ($res > 0) {
-                \array_push($tmpArr, $arr[$i + 1]);
-                \array_push($tmpArr, $arr[$i]);
-            } else if ($res < 0) {
-                \array_push($tmpArr, $arr[$i]);
-                \array_push($tmpArr, $arr[$i + 1]);
-            } else {
-                \array_push($tmpArr, $arr[$i]);
-                \array_push($tmpArr, $arr[$i + 1]);
-            }
-        }
-
+    return function (array $list) use ($fn) {
+        $tmpArr = \array_slice($list, 0);
+        \usort($tmpArr, $fn);
         return $tmpArr;
     };
 }

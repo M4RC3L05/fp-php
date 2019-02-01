@@ -4,15 +4,26 @@ namespace FPPHP\Lists;
 
 use function FPPHP\utils\isAssoc;
 
-
+/**
+ * 
+ * uniqWith: ((x, x)) -> bool) -> [x] -> [x]
+ * 
+ * Returns a new array containing only one of each values based on 
+ * the value provided by calling the perdicate with 2 values
+ * 
+ * @param callable $perdicate
+ * @param array $list
+ * @return array
+ * 
+ */
 function uniqWith(callable $perdicate)
 {
-    return function (array $arr) use ($perdicate) {
+    return function (array $list) use ($perdicate) {
         $tmpArr = [];
         $values = [];
-        $isAssoc = isAssoc($arr);
+        $isAssoc = isAssoc($list);
 
-        foreach ($arr as $key => $value) {
+        foreach ($list as $key => $value) {
 
             $inArr = false;
 

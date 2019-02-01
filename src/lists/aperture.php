@@ -4,23 +4,33 @@ namespace FPPHP\Lists;
 
 use function FPPHP\utils\isAssoc;
 
-
-function aperture(int $num)
+/**
+ * 
+ * aperture: int -> [x] -> [[x]]
+ * 
+ * Retruns a new array of tuples with the provided size
+ * 
+ * @param int $size
+ * @param array $list
+ * @return array
+ * 
+ */
+function aperture(int $size)
 {
-    return function (array $arr) use ($num) {
+    return function (array $list) use ($size) {
         $tmpArr = [];
         $pairs = 0;
         $curr = 0;
 
-        if ($num > \count($arr)) return $tmpArr;
+        if ($size > \count($list)) return $tmpArr;
 
-        if ($num === \count($arr)) return \array_slice($arr, 0);
+        if ($size === \count($list)) return [\array_slice($list, 0)];
 
-        $isAssoc = isAssoc($arr);
+        $isAssoc = isAssoc($list);
         $tmpArr = [[]];
 
-        foreach ($arr as $key => $value) {
-            if ($pairs > $num - 1) {
+        foreach ($list as $key => $value) {
+            if ($pairs > $size - 1) {
                 $pairs = 0;
                 $curr += 1;
                 if ($isAssoc)

@@ -2,11 +2,21 @@
 
 namespace FPPHP\Lists;
 
-function head(array $iterable)
+/**
+ * 
+ * head: [x] -> x
+ * 
+ * Return the first element of the array
+ * 
+ * @param array $list
+ * @return mixed
+ * 
+ */
+function head(array $list)
 {
-    if (count($iterable) <= 0) return null;
+    if (count($list) <= 0) return null;
 
-    return \array_values($iterable)[0];
+    return \array_values($list)[0];
 }
 
 

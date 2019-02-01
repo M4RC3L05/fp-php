@@ -2,10 +2,21 @@
 
 namespace FPPHP\Lists;
 
+/**
+ * 
+ * findIndex: (x -> bool) -> [x] -> int
+ * 
+ * Returns the index of the value that matches the perdicate
+ * 
+ * @param callable $perdicate
+ * @param array $list
+ * @return int
+ * 
+ */
 function findIndex(callable $perdicate)
 {
-    return function (array $arr) use ($perdicate) {
-        foreach ($arr as $key => $value) {
+    return function (array $list) use ($perdicate) {
+        foreach ($list as $key => $value) {
             if ($perdicate($value, $key)) return $key;
         }
 

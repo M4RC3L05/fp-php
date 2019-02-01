@@ -2,25 +2,24 @@
 
 namespace FPPHP\Lists;
 
+/**
+ * 
+ * insertAll: int -> [x] -> [x] -> [x]
+ * 
+ * Returns a new array plus the values inserted at a given index
+ * on the array
+ * 
+ * @param int $pos
+ * @param array $values
+ * @param array $list
+ * @return array
+ * 
+ */
 function insertAll(int $pos)
 {
-    return function (array $arr1) use ($pos) {
-        return function (array $arr2) use ($pos, $arr1) {
-
-            $tmpArr = [];
-
-            foreach ($arr2 as $k => $x) {
-                if ($k + 1 === $pos) {
-                    \array_push($tmpArr, $x);
-                    foreach ($arr1 as $k => $x) {
-                        \array_push($tmpArr, $x);
-                    }
-                } else {
-                    \array_push($tmpArr, $x);
-                }
-            }
-
-            return $tmpArr;
+    return function (array $values) use ($pos) {
+        return function (array $list) use ($pos, $values) {
+            return insert($pos)($values)($list);
         };
     };
 }

@@ -21,6 +21,6 @@ class InsertAllTest extends TestCase
         $this->assertEquals([1, 2, 3, 4], $res);
 
         $res = insertAll(-1)(["x", "y", "z"])($arr);
-        $this->assertEquals([1, 2, 3, 4], $res);
+        $this->assertEquals([1, 2, 3, 4, "x", "y", "z"], $res);
     }
 }

@@ -16,7 +16,7 @@ class ApertureTest extends TestCase
 
         $arr = [1, 2, 3, 4, 5];
         $arrAp = aperture(5)($arr);
-        $this->assertEquals([1, 2, 3, 4, 5], $arrAp);
+        $this->assertEquals([[1, 2, 3, 4, 5]], $arrAp);
 
         $arr = [1, 2, 3, 4, 5];
         $arrAp = aperture(6)($arr);

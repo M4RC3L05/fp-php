@@ -2,6 +2,17 @@
 
 namespace FPPHP\Lists;
 
+/**
+ * 
+ * unfold: (x -> [y]) -> * -> [y]
+ * 
+ * Returns a new array by calling the $iterFn that returns a tuple
+ * [value to add, seed for the next call] until the result if false
+ * 
+ * @param callable $iterFn
+ * @return array
+ * 
+ */
 function unfold(callable $iterFn)
 {
     return function ($seed) use ($iterFn) {

@@ -2,22 +2,29 @@
 
 namespace FPPHP\Lists;
 
+/**
+ * 
+ * insert: int -> x -> [x] -> [x]
+ * 
+ * Returns a new array plus the value tha is inserted on
+ * a given index
+ * 
+ * @param int $pos
+ * @param mixed $value
+ * @param array $list
+ * @return array
+ * 
+ */
 function insert(int $pos)
 {
-    return function ($val) use ($pos) {
-        return function (array $arr) use ($val, $pos) {
-            $tmpArr = [];
+    return function ($value) use ($pos) {
+        return function (array $list) use ($value, $pos) {
 
-            foreach ($arr as $k => $x) {
-                if ($k + 1 === $pos) {
-                    \array_push($tmpArr, $x);
-                    \array_push($tmpArr, $val);
-                } else {
-                    \array_push($tmpArr, $x);
-                }
-            }
-
-            return $tmpArr;
+            $size = \count($list);
+            $pos = ($pos >= 0 && $pos < $size ? $pos : $size);
+            $tmp = \array_slice($list, 0);
+            array_splice($tmp, $pos, 0, $value);
+            return $tmp;
         };
     };
 }

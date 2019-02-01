@@ -2,14 +2,25 @@
 
 namespace FPPHP\Lists;
 
-function dropLast(int $num)
+/**
+ * 
+ * dropLast: int -> [x] -> [x]
+ * 
+ * Returns a new array less the last n elements
+ * 
+ * @param int $dropNum
+ * @param array $list
+ * @return array
+ * 
+ */
+function dropLast(int $dropNum)
 {
-    return function (array $arr) use ($num) {
+    return function (array $list) use ($dropNum) {
 
-        if ($num < 0) return \array_slice($arr, 0);
+        if ($dropNum < 0) return \array_slice($list, 0);
 
-        if ($num >= \count($arr)) return [];
+        if ($dropNum >= \count($list)) return [];
 
-        return take(\count($arr) - $num)($arr);
+        return take(\count($list) - $dropNum)($list);
     };
 }

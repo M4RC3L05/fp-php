@@ -4,14 +4,23 @@ namespace FPPHP\Lists;
 
 use function FPPHP\utils\isAssoc;
 
-
-function flatten(array $arr)
+/**
+ * 
+ * flatten: [[x]] -> [x]
+ * 
+ * Returns new array with depth of one
+ * 
+ * @param array $list
+ * @return array
+ * 
+ */
+function flatten(array $list)
 {
-    if (\count($arr) <= 0) return [];
+    if (\count($list) <= 0) return [];
 
-    $isAssoc = isAssoc($arr);
+    $isAssoc = isAssoc($list);
     $tmp = [];
-    array_walk_recursive($arr, function ($v, $k) use (&$tmp, $isAssoc) {
+    array_walk_recursive($list, function ($v, $k) use (&$tmp, $isAssoc) {
         if ($isAssoc) $tmp[$k] = $v;
         else $tmp[] = $v;
     });

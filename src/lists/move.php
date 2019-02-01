@@ -2,18 +2,32 @@
 
 namespace FPPHP\Lists;
 
+/**
+ * 
+ * move: int -> int -> [x] ->  [x]
+ * 
+ * Moves the item at index from to index to
+ * 
+ * @param int $from
+ * @param int $to
+ * @param array $list
+ * @return array
+ * 
+ */
 function move(int $from)
 {
     return function (int $to) use ($from) {
-        return function (array $arr) use ($from, $to) {
-            if (count($arr) <= 0) return $arr;
+        return function (array $list) use ($from, $to) {
+            $size = \count($list);
 
-            $tmpArr = \array_slice($arr, 0);
+            if ($size <= 0) return $list;
 
-            $f = ($from < 0 ? \count($arr) + $from : $from);
-            $t = ($to < 0 ? count($arr) + $to : $to);
+            $tmpArr = \array_slice($list, 0);
 
-            if ($f >= \count($arr) || $f < 0 || $t >= \count($arr) || $t < 0) return $arr;
+            $f = ($from < 0 ? $size + $from : $from);
+            $t = ($to < 0 ? $size + $to : $to);
+
+            if ($f >= $size || $f < 0 || $t >= $size || $t < 0) return $arr;
 
             $val1 = \array_splice($tmpArr, $f, 1);
 

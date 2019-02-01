@@ -2,14 +2,24 @@
 
 namespace FPPHP\Lists;
 
-function transpose(array $arr)
+/**
+ * 
+ * transpose: [[x]] -> [[x]]
+ * 
+ * Trasnform a list nxm -> mxn (2x3 -> 3x2)
+ * 
+ * @param array $list
+ * @return array
+ * 
+ */
+function transpose(array $list)
 {
     $tmpArr = [];
 
-    for ($line = 0; $line < \count($arr); $line++) {
-        $innerList = \array_values($arr[$line]);
+    for ($line = 0; $line < \count($list); $line++) {
+        $innerList = \array_values($list[$line]);
 
-        for ($col = 0; $col < \count($arr[$line]); $col++) {
+        for ($col = 0; $col < \count($list[$line]); $col++) {
             if (!\array_key_exists($col, $tmpArr)) \array_push($tmpArr, []);
 
             \array_push($tmpArr[$col], $innerList[$col]);

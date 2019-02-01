@@ -4,14 +4,23 @@ namespace FPPHP\Lists;
 
 use function FPPHP\utils\isAssoc;
 
-
-function dropRepeats(array $arr)
+/**
+ * 
+ * dropRepeats: [x] -> [x]
+ * 
+ * Returns a new array without concecutive duplicated elements
+ * 
+ * @param array $list
+ * @return array
+ * 
+ */
+function dropRepeats(array $list)
 {
     $tmpArr = [];
-    $loopArr = \array_slice($arr, 0);
+    $loopArr = \array_slice($list, 0);
     $isAssoc = isAssoc($loopArr);
 
-    foreach ($arr as $key => $value) {
+    foreach ($list as $key => $value) {
         if ($value !== next($loopArr)) {
             if ($isAssoc) {
                 $tmpArr[$key] = $value;

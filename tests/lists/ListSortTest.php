@@ -16,5 +16,9 @@ class ListSortTest extends TestCase
         })($arr);
         $this->assertEquals([2, 4, 5, 7], $res);
 
+        $res = listSort(function ($x, $y) {
+            return $x > $y ? -1 : 1;
+        })($arr);
+        $this->assertEquals([7, 5, 4, 2], $res);
     }
 }

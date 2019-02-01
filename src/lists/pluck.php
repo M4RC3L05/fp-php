@@ -4,15 +4,28 @@ namespace FPPHP\Lists;
 
 use function FPPHP\utils\isAssoc;
 
-
+/**
+ * 
+ * pluck: x -> [x => y] -> [y]
+ * pluck: x -> [[x], [x]] -> [x]
+ * 
+ * Returns an array with 2 arrays in wich, the first array contains
+ * the values that matches the perdicate, and the second one, the
+ * values that dont
+ * 
+ * @param mixed $index
+ * @param array $list
+ * @return array
+ * 
+ */
 function pluck($index)
 {
-    return function (array $arr) use ($index) {
-        $isAssoc = isAssoc($arr);
+    return function (array $list) use ($index) {
+        $isAssoc = isAssoc($list);
 
         $tmpArr = [];
 
-        foreach ($arr as $key => $value) {
+        foreach ($list as $key => $value) {
             $toArr = (array)$value;
 
             if ($isAssoc) {

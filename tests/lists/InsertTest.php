@@ -15,10 +15,19 @@ class InsertTest extends TestCase
         $res = insert(2)("x")($arr);
         $this->assertEquals([1, 2, "x", 3], $res);
 
-        $res = insert(10)("x")($arr);
-        $this->assertEquals([1, 2, 3], $res);
+        $res = insert(3)("x")($arr);
+        $this->assertEquals([1, 2, 3, "x"], $res);
 
-        $res = insert(10)("x")([]);
-        $this->assertEquals([], $res);
+        $res = insert(0)("x")($arr);
+        $this->assertEquals(["x", 1, 2, 3], $res);
+
+        $res = insert(10)("x")($arr);
+        $this->assertEquals([1, 2, 3, "x"], $res);
+
+        $res = insert(-2)("x")($arr);
+        $this->assertEquals([1, 2, 3, "x"], $res);
+
+        $res = insert(-10)("x")([]);
+        $this->assertEquals(["x"], $res);
     }
 }

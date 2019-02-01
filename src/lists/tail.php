@@ -5,8 +5,18 @@ namespace FPPHP\Lists;
 use function FPPHP\Functions\compose;
 use function FPPHP\Lists\takeLast;
 
-function tail(array $iterable)
+/**
+ * 
+ * tail: [x] -> [x]
+ * 
+ * Returns all but the first element of the array
+ * 
+ * @param array $list
+ * @return array
+ * 
+ */
+function tail(array $list)
 {
-    if (count($iterable) <= 0) return [];
-    return takeLast(count($iterable) - 1)($iterable);
+    if (count($list) <= 0) return [];
+    return takeLast(count($list) - 1)($list);
 }
