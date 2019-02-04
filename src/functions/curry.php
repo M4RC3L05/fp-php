@@ -15,20 +15,15 @@ namespace FPPHP\Functions;
 function curry(callable $fn)
 {
     $numOfArgs = (new \ReflectionFunction(\Closure::fromCallable($fn)))->getNumberOfParameters();
+    $args = [];
 
-    $inner = function ($args) use ($numOfArgs, &$inner, $fn) {
-        return function ($arg = null) use ($numOfArgs, &$inner, $fn, $args) {
+    $inner = function ($x = null) use ($numOfArgs, &$inner, $fn, &$args) {
+        \array_push($args, $x);
 
-            if ($numOfArgs <= 0) return \call_user_func($fn);
+        if (\count($args) < $numOfArgs) return $inner;
 
-            \array_push($args, $arg);
-
-            if (count($args) < $numOfArgs)
-                return $inner($args);
-            else
-                return $fn(...$args);
-        };
+        return $fn(...$args);
     };
 
-    return $inner([]);
+    return $inner;
 }
