@@ -12,7 +12,7 @@ namespace FPPHP\Functions;
  * @return callable
  * 
  */
-function bind(mixed $newContext)
+function bind($newContext)
 {
     return function (callable $fn) use ($newContext) {
 
