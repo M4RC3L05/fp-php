@@ -2,6 +2,16 @@
 
 namespace FPPHP\Functions;
 
+/**
+ * 
+ * nAry: int -> (* -> a) -> (* -> a)
+ * 
+ * Returns a function with n arity
+ * 
+ * @param callable $fn
+ * @return callable
+ * 
+ */
 function nAry(int $n)
 {
     return function (callable $fn) use ($n) {
