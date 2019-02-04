@@ -14,7 +14,7 @@ namespace FPPHP\Functions;
  */
 function curry(callable $fn)
 {
-    $numOfArgs = (new \ReflectionFunction(\Closure::fromCallable($fn)))->getNumberOfRequiredParameters();
+    $numOfArgs = (new \ReflectionFunction(\Closure::fromCallable($fn)))->getNumberOfParameters();
 
     $inner = function ($args) use ($numOfArgs, &$inner, $fn) {
         return function ($arg = null) use ($numOfArgs, &$inner, $fn, $args) {

@@ -11,7 +11,6 @@ namespace FPPHP\Functions;
  * is less that the second
  * 
  * @param callable $fn
- * @param mixed $args
  * @return callable
  * 
  */
