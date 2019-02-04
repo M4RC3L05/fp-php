@@ -4,20 +4,21 @@ namespace FPPHP\Lists;
 
 /**
  * 
- * listSort: (x -> int) -> [x] -> [x]
+ * listSort: ((x, x) -> int) -> [x] -> [x]
  * 
- * Returns a new array sorted by the function provided (-1, 0, 1)
+ * Sorts a array by a given sort function
  * 
- * @param callable $fn
+ * @param callable $sortFn
  * @param array $list
  * @return array
  * 
  */
-function listSort(callable $fn)
+function listSort(callable $sortFn)
 {
-    return function (array $list) use ($fn) {
+    return function (array $list) use ($sortFn) {
         $tmpArr = \array_slice($list, 0);
-        \usort($tmpArr, $fn);
+        \usort($tmpArr, $sortFn);
         return $tmpArr;
     };
 }
+        
