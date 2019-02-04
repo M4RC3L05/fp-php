@@ -6,7 +6,7 @@ namespace FPPHP\Functions;
  * 
  * binary: (* -> z) -> (x, y -> z) 
  * 
- * takes a function of any arity and returns a function that
+ * Takes a function of any arity and returns a function that
  * only accepts 2 parameters end passes them to the wrapped
  * function
  * 
