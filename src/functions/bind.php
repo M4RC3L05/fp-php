@@ -7,9 +7,8 @@ namespace FPPHP\Functions;
  * 
  * Returns a new function binded to the new context provided
  * 
+ * @param mixed $newContext
  * @param callable $fn
- * @param mixed $arg1
- * @param mixed $arg2
  * @return callable
  * 
  */
