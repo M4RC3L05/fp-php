@@ -6,7 +6,7 @@ use function FPPHP\Lists\map;
 
 /**
  * 
- * compose: ((* -> *), [(y -> z), (x -> y), …, (o -> p), ((a, b, …, n) -> o)]) -> ((a, b, …, n) -> z)
+ * composeWith: ((* -> *), [(y -> z), (x -> y), …, (o -> p), ((a, b, …, n) -> o)]) -> ((a, b, …, n) -> z)
  * 
  * Composes functions from right to left, fiven a function
  * 
