@@ -2,6 +2,16 @@
 
 namespace FPPHP\Functions;
 
+/**
+ * 
+ * nAry: int -> *... -> *
+ * 
+ * Returns the nth arg
+ * 
+ * @param int $n
+ * @return callable
+ * 
+ */
 function nthArg(int $n)
 {
     return function (...$args) use ($n) {
