@@ -14,7 +14,6 @@ namespace FPPHP\Functions;
  * @return callable
  * 
  */
-
 function call(callable $fn)
 {
     return function (...$args) use ($fn) {
