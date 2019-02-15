@@ -2,6 +2,18 @@
 
 namespace FPPHP\Functions;
 
+/**
+ *
+ * unapply: int -> (a -> b) -> (a -> c)
+ *
+ * Returns a function with n arity
+ *
+ * @param int $n
+ * @param callable $fn
+ * @param mixed $args
+ * @return mixed
+ *
+ */
 function uncurryN(int $n)
 {
     return function (callable $fn) use ($n) {
