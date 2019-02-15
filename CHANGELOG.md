@@ -1,3 +1,7 @@
+#0.3.0
+
+-   Finish functions utilities
+
 # 0.2.0
 
 -   Add Doc comments
